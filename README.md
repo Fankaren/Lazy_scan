@@ -2,6 +2,7 @@ a slow tool to scan ports and analyze ports.
 
 
 ### Hot to use
+```
 usage: get_ip.py [-h] [-f FILE] [-d DIRECTORY] [-p PORT] [-o OUTPUT] [-i]
 
 optional arguments:
@@ -13,6 +14,7 @@ optional arguments:
   -o OUTPUT, --output OUTPUT
                         指定输出的压缩文件名,不需要后缀。不设置参数则随机生成文件名。
   -i, --interface       产生交互。不设置参数则不进行交互，终端不显示任何信息。
+```
 
 ### TODO
 1. speed up
