@@ -5,7 +5,7 @@ a slow tool to scan ports and analyze ports.
 1. 将端口扫描文件放到scan文件夹
 2. 执行`python3 lazy.py`
 3. 端口分类文件输出到output文件夹
-4. 自动生成压缩包文件
+4. 自动在脚本同级目录下生成压缩包文件
 ```
 usage: python3 lazy.py [-h] [-f FILE] [-d DIRECTORY] [-p PORT] [-o OUTPUT] [-i]
 
