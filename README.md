@@ -2,8 +2,12 @@ a slow tool to scan ports and analyze ports.
 
 
 ### Hot to use
+1. 将端口扫描文件放到scan文件夹
+2. 执行`python3 lazy.py`
+3. 端口分类文件输出到output文件夹
+4. 自动生成压缩包文件
 ```
-usage: get_ip.py [-h] [-f FILE] [-d DIRECTORY] [-p PORT] [-o OUTPUT] [-i]
+usage: python3 lazy.py [-h] [-f FILE] [-d DIRECTORY] [-p PORT] [-o OUTPUT] [-i]
 
 optional arguments:
   -h, --help            show this help message and exit

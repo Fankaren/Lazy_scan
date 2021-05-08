@@ -1,5 +1,6 @@
 import os
 import argparse
+import shutil
 from zipfile import ZipFile, ZIP_DEFLATED
 from uuid import uuid4
 
@@ -39,6 +40,10 @@ class Ports():
 
     def make_dir(self, dir_name):
         if not os.path.exists(dir_name):
+            os.mkdir(dir_name)
+        else:
+            print('Deleting output folder ...')
+            shutil.rmtree(dir_name)
             os.mkdir(dir_name)
 
     def write_file(self, port, ip_list):
@@ -84,11 +89,6 @@ class Ports():
             ports.append(str(i))
         return ports
 
-    @staticmethod
-    def zip_folder(output_file='output.zip'):
-        zip_path = os.path.join(os.getcwd(), output_file)
-        with ZipFile(zip_path, 'w', compression=ZIP_DEFLATED) as f:
-            f.write(zip_path, output_file)
 
 
 if __name__ == '__main__':
