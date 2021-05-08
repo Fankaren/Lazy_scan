@@ -22,4 +22,4 @@ optional arguments:
 1. Auto port classification.
 2. Output a zipfile.
 
-![lazy picture](https://github.com/Fankaren/Lazy_scan/raw/master/img/run.jpg)
+![lazy picture](https://github.com/Fankaren/Lazy_scan/blob/main/img/run.jpg)
