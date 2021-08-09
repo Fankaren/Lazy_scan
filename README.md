@@ -27,5 +27,6 @@ optional arguments:
 ### Done
 1. Auto port classification.
 2. Output a zipfile.
+3. Easy way to analyze CDN.
 
 ![lazy picture](https://github.com/Fankaren/Lazy_scan/blob/main/img/run.jpg)
