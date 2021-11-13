@@ -1,4 +1,4 @@
-a slow tool to scan ports and analyze ports.
+a slow tool to scan and analyze ports.
 
 
 ### Hot to use
