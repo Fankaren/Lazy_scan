@@ -105,13 +105,13 @@ class CheckCDN(object):
 
 
 if __name__ == '__main__':
-    filepath = "D:\\subs.txt"
+    filepath = "subs.txt"
     domains = []
     try:
         with open(filepath, 'r') as f:
             for line in f:
-                if 'http://' or 'https://' in line:
-                    line = line.strip('http://').strip('https://')
+                if "http://" or "https://" in line:
+                    line = line.replace("https://","").replace("http://","")
                 if line.count('.') >= 1:
                     domains.append(line.strip('\n'))
     except IOError as err:
