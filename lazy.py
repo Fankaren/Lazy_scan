@@ -3,6 +3,7 @@ import argparse
 import shutil
 from zipfile import ZipFile, ZIP_DEFLATED
 from uuid import uuid4
+import xlsxwriter
 
 '''
 # TODO 进行端口扫描
@@ -37,6 +38,8 @@ class Ports():
                             else:
                                 ip_list.append(head)
             self.write_file(port, ip_list)
+        print('saving result to xls...')
+        self.generate_excel(self.output_dir)
 
     def make_dir(self, dir_name):
         if not os.path.exists(dir_name):
@@ -60,11 +63,26 @@ class Ports():
                         f.writelines(ip)
                         f.write('\n')
 
+    def generate_excel(self, dir_name):
+        xls_path = dir_name+'/output.xlsx'
+        workbook = xlsxwriter.Workbook(xls_path) # 建立文件
+        files = os.listdir(dir_name)
+        files.sort(key=lambda x:int(x.split('.txt')[0]))
+        for filename in files:
+            with open(dir_name+'/'+filename,'r', encoding="utf-8") as f:
+                worksheet = workbook.add_worksheet(filename) # 建立sheet， 可以work.add_worksheet('employee')来指定sheet名，但中文名会报UnicodeDecodeErro的错误
+                worksheet.write('A1', 'IP')
+                i = 1
+                for line in f.readlines():
+                    worksheet.write(i,0,line)
+                    i = i + 1
+        workbook.close()
+
     def backupZip(self, zipfile):  # 这个函数只做文件夹打包的动作，不判断压缩包是否存在
         folder = self.output_dir
         with ZipFile(zipfile, 'w') as zfile:  # 以写入模式创建压缩包
             for foldername, subfolders, files in os.walk(folder):  # 遍历文件夹
-                print('Adding files in ' + foldername + '...')
+                print('Adding files in ' + zipfile + '...')
                 zfile.write(foldername)
                 for i in files:
                     zfile.write(os.path.join(foldername, i))
